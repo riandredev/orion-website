@@ -339,6 +339,12 @@ a {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.downloads > article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .feature {
   display: flex;
   align-items: flex-start;
@@ -366,7 +372,11 @@ a {
 }
 
 .downloads .button {
-  margin-top: 18px;
+  margin-top: auto;
+}
+
+.downloads p {
+  margin-bottom: 18px;
 }
 
 .button {
