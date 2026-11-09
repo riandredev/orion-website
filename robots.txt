@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://orion.riandre.com/sitemap.xml

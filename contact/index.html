@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact — Orion</title>
+    <meta name="description" content="Submit a church or organization library for Orion. It is reviewed before it is published.">
+    <link rel="canonical" href="https://orion.riandre.com/contact/">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Orion">
+    <meta property="og:title" content="Contact — Orion">
+    <meta property="og:description" content="Submit a church or organization library for Orion. It is reviewed before it is published.">
+    <meta property="og:url" content="https://orion.riandre.com/contact/">
+    <meta property="og:image" content="https://orion.riandre.com/images/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Orion showing the service order, a slide, a hymn, and a Bible verse">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact — Orion">
+    <meta name="twitter:description" content="Submit a church or organization library for Orion. It is reviewed before it is published.">
+    <meta name="twitter:image" content="https://orion.riandre.com/images/og.png">
+    <link rel="icon" href="../images/icon.png">
+    <link rel="apple-touch-icon" href="../images/icon.png">
+    <link rel="stylesheet" href="../css/site.css?v=bible">
+  </head>
+  <body>
+    <header class="header">
+      <div class="frame header__inner">
+        <a class="brand" href="../">
+          <img class="wordmark" src="../images/wordmark.png?v=white" alt="Orion">
+        </a>
+        <nav class="header__nav">
+          <a href="../libraries/">Libraries</a>
+          <a href="../#download">Download</a>
+          <a href="https://github.com/riandredev/orion">Source</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="frame">
+        <h1>Contact</h1>
+        <p class="summary">Submit a library for your church or organization. It is reviewed before it is published. Once it is accepted, every Orion user can install it from Settings.</p>
+        <form class="contact" id="library-submission">
+          <label>Your name<input name="name" required autocomplete="name"></label>
+          <label>Church or organization<input name="org" required></label>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <label>Library name<input name="library" required></label>
+          <label>What is in it<textarea name="contents" required></textarea></label>
+          <label class="check"><input name="permission" type="checkbox" required>I have permission to share these files, including any hymns, Bible text, and images.</label>
+          <button class="button button--suggested" type="submit">Send submission</button>
+        </form>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="frame footer__grid">
+        <div>
+          <img class="wordmark wordmark--footer" src="../images/wordmark.png?v=white" alt="Orion">
+          <p>Presentation software for church services.</p>
+        </div>
+        <div>
+          <a href="../#download">Download</a>
+          <a href="./">Contact</a>
+          <a href="https://github.com/riandredev/orion/releases/tag/v1.0.7">Release 1.0.7</a>
+          <a href="https://github.com/riandredev/orion">Source code</a>
+        </div>
+        <div>
+          <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPL-3.0-only</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('library-submission').addEventListener('submit', (event) => {
+        event.preventDefault()
+        const data = new FormData(event.currentTarget)
+        const field = (name) => String(data.get(name) || '').trim()
+        const title = `Library submission: ${field('library')}`
+        const body = [
+          `Name: ${field('name')}`,
+          `Church or organization: ${field('org')}`,
+          `Email: ${field('email')}`,
+          `Library: ${field('library')}`,
+          '',
+          'Contents:',
+          field('contents'),
+          '',
+          'Permission to share the files, including hymns, Bible text, and images: yes'
+        ].join('\n')
+        const url = new URL('https://github.com/riandredev/orion/issues/new')
+        url.searchParams.set('title', title)
+        url.searchParams.set('body', body)
+        location.href = url.toString()
+      })
+    </script>
+  </body>
+</html>

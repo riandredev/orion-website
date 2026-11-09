@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Libraries — Orion</title>
+    <meta name="description" content="Public content libraries for Orion, including SDA Panorama Church. Install them from Settings in the app.">
+    <link rel="canonical" href="https://orion.riandre.com/libraries/">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Orion">
+    <meta property="og:title" content="Libraries — Orion">
+    <meta property="og:description" content="Public content libraries for Orion, including SDA Panorama Church. Install them from Settings in the app.">
+    <meta property="og:url" content="https://orion.riandre.com/libraries/">
+    <meta property="og:image" content="https://orion.riandre.com/images/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Orion showing the service order, a slide, a hymn, and a Bible verse">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Libraries — Orion">
+    <meta name="twitter:description" content="Public content libraries for Orion, including SDA Panorama Church. Install them from Settings in the app.">
+    <meta name="twitter:image" content="https://orion.riandre.com/images/og.png">
+    <link rel="icon" href="../images/icon.png">
+    <link rel="apple-touch-icon" href="../images/icon.png">
+    <link rel="stylesheet" href="../css/site.css?v=bible">
+  </head>
+  <body>
+    <header class="header">
+      <div class="frame header__inner">
+        <a class="brand" href="../">
+          <img class="wordmark" src="../images/wordmark.png?v=white" alt="Orion">
+        </a>
+        <nav class="header__nav">
+          <a href="./" aria-current="page">Libraries</a>
+          <a href="../#download">Download</a>
+          <a href="https://github.com/riandredev/orion">Source</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="frame">
+        <h1>Libraries</h1>
+        <p class="summary">Public content packs. Install them from Settings in Orion. <a href="../contact/">Submit a library</a>.</p>
+        <div class="catalog" id="library-index">
+          <a href="library.html?id=panorama">
+            <img src="../images/libraries/panorama.png" alt="">
+            <span>SDA Panorama Church</span>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="frame footer__grid">
+        <div>
+          <img class="wordmark wordmark--footer" src="../images/wordmark.png?v=white" alt="Orion">
+          <p>Presentation software for church services.</p>
+        </div>
+        <div>
+          <a href="../#download">Download</a>
+          <a href="../contact/">Contact</a>
+          <a href="https://github.com/riandredev/orion/releases/tag/v1.0.7">Release 1.0.7</a>
+          <a href="https://github.com/riandredev/orion">Source code</a>
+        </div>
+        <div>
+          <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPL-3.0-only</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function escapeText(value) {
+        return String(value).replace(/[&<>"']/g, (char) => ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        })[char])
+      }
+
+      fetch('../data/libraries.json')
+        .then((response) => response.json())
+        .then((data) => {
+          const libraries = Array.isArray(data.libraries) ? data.libraries : []
+          document.getElementById('library-index').innerHTML = libraries.map((library) =>
+            `<a href="library.html?id=${encodeURIComponent(library.id)}">
+              <img src="../${escapeText(library.icon)}" alt="">
+              <span>${escapeText(library.name)}</span>
+            </a>`
+          ).join('')
+        })
+        .catch(() => {
+          document.getElementById('library-index').textContent = 'The library index could not be loaded.'
+        })
+    </script>
+  </body>
+</html>

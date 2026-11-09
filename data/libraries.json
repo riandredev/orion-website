@@ -1,0 +1,179 @@
+{
+  "libraries": [
+    {
+      "id": "panorama",
+      "name": "SDA Panorama Church",
+      "version": "1",
+      "summary": "Service order folders, Adventist hymnals, Afrikaans and English Bibles, and the matching backgrounds.",
+      "icon": "images/libraries/panorama.png",
+      "visuals": [
+        {
+          "label": "Service order",
+          "folders": [
+            {
+              "name": "Boodskap",
+              "images": []
+            },
+            {
+              "name": "Doop",
+              "images": [
+                {
+                  "src": "images/libraries/order/Doop/image1.jpg",
+                  "alt": "Doop slide"
+                }
+              ]
+            },
+            {
+              "name": "Gebed",
+              "images": [
+                {
+                  "src": "images/libraries/order/Gebed/image1.jpg",
+                  "alt": "Gebed slide"
+                }
+              ]
+            },
+            {
+              "name": "Kinderstorie",
+              "images": [
+                {
+                  "src": "images/libraries/order/Kinderstorie/image1.jpg",
+                  "alt": "Kinderstorie slide"
+                }
+              ]
+            },
+            {
+              "name": "Klingeloffergawe",
+              "images": [
+                {
+                  "src": "images/libraries/order/Klingeloffergawe/image1.jpg",
+                  "alt": "Klingeloffergawe slide"
+                }
+              ]
+            },
+            {
+              "name": "Lesstudie",
+              "images": [
+                {
+                  "src": "images/libraries/order/Lesstudie/image1.jpg",
+                  "alt": "Lesstudie slide"
+                },
+                {
+                  "src": "images/libraries/order/Lesstudie/image2.jpg",
+                  "alt": "Lesstudie slide"
+                },
+                {
+                  "src": "images/libraries/order/Lesstudie/image3.jpg",
+                  "alt": "Lesstudie slide"
+                },
+                {
+                  "src": "images/libraries/order/Lesstudie/image4.jpg",
+                  "alt": "Lesstudie slide"
+                },
+                {
+                  "src": "images/libraries/order/Lesstudie/image5.jpg",
+                  "alt": "Lesstudie slide"
+                },
+                {
+                  "src": "images/libraries/order/Lesstudie/image6.jpg",
+                  "alt": "Lesstudie slide"
+                }
+              ]
+            },
+            {
+              "name": "Nagmaal",
+              "images": []
+            },
+            {
+              "name": "Offergawe",
+              "images": [
+                {
+                  "src": "images/libraries/order/Offergawe/image1.jpg",
+                  "alt": "Offergawe slide"
+                }
+              ]
+            },
+            {
+              "name": "Spesiale Item",
+              "images": [
+                {
+                  "src": "images/libraries/order/Spesiale Item/image1.jpg",
+                  "alt": "Spesiale Item slide"
+                }
+              ]
+            },
+            {
+              "name": "Welkom",
+              "images": [
+                {
+                  "src": "images/libraries/order/Welkom/image1.jpg",
+                  "alt": "Welkom slide"
+                },
+                {
+                  "src": "images/libraries/order/Welkom/image2.jpg",
+                  "alt": "Welkom slide"
+                },
+                {
+                  "src": "images/libraries/order/Welkom/image3.jpg",
+                  "alt": "Welkom slide"
+                },
+                {
+                  "src": "images/libraries/order/Welkom/image4.jpg",
+                  "alt": "Welkom slide"
+                },
+                {
+                  "src": "images/libraries/order/Welkom/image5.jpg",
+                  "alt": "Welkom slide"
+                },
+                {
+                  "src": "images/libraries/order/Welkom/image6.jpg",
+                  "alt": "Welkom slide"
+                },
+                {
+                  "src": "images/libraries/order/Welkom/image7.jpg",
+                  "alt": "Welkom slide"
+                },
+                {
+                  "src": "images/libraries/order/Welkom/image8.jpg",
+                  "alt": "Welkom slide"
+                },
+                {
+                  "src": "images/libraries/order/Welkom/image9.jpg",
+                  "alt": "Welkom slide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Backgrounds",
+          "images": [
+            {
+              "src": "images/libraries/backgrounds/bible.jpg",
+              "alt": "Bible background"
+            },
+            {
+              "src": "images/libraries/backgrounds/hymn.jpg",
+              "alt": "Hymn background"
+            }
+          ]
+        }
+      ],
+      "details": [
+        {
+          "label": "Hymnals",
+          "items": [
+            "Afrikaans Adventist, 482 hymns",
+            "English Adventist, 695 hymns"
+          ]
+        },
+        {
+          "label": "Bibles",
+          "items": [
+            "Afrikaans 1953",
+            "King James Version"
+          ]
+        }
+      ]
+    }
+  ]
+}
