@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Library — Orion</title>
+    <title>Library | Orion</title>
     <meta name="description" content="Slides, hymnals, and Bibles in a public Orion library. Install it from Settings in the app.">
     <link rel="canonical" href="https://orion.riandre.com/libraries/library.html">
     <meta name="theme-color" content="#000000">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Orion">
-    <meta property="og:title" content="Library — Orion">
+    <meta property="og:title" content="Library | Orion">
     <meta property="og:description" content="Slides, hymnals, and Bibles in a public Orion library. Install it from Settings in the app.">
     <meta property="og:url" content="https://orion.riandre.com/libraries/library.html">
     <meta property="og:image" content="https://orion.riandre.com/images/og.png">
@@ -17,7 +17,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Orion showing the service order, a slide, a hymn, and a Bible verse">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Library — Orion">
+    <meta name="twitter:title" content="Library | Orion">
     <meta name="twitter:description" content="Slides, hymnals, and Bibles in a public Orion library. Install it from Settings in the app.">
     <meta name="twitter:image" content="https://orion.riandre.com/images/og.png">
     <link rel="icon" href="../images/icon.png">
@@ -82,7 +82,7 @@
       }
 
       function render(library) {
-        document.title = `${library.name} — Orion`
+        document.title = `${library.name} | Orion`
         const visuals = (library.visuals || []).map((group) => {
           const folders = (group.folders || []).filter((folder) => (folder.images || []).length)
           const images = group.images || []
