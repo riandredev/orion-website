@@ -57,7 +57,7 @@
           <h1>Present the service from one place</h1>
           <p>Orion sends the order of service, hymns, Bible, and slides to the church displays.</p>
           <div class="hero__actions">
-            <a class="button button--suggested" id="download-primary" href="https://github.com/riandredev/orion/releases/download/v1.0.7/Orion-1.0.7-windows-setup.exe"><svg class="os-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 11h-9V4.883l7.89-.877A1 1 0 0 1 22 5Zm-11 0H2V7a1 1 0 0 1 .89-.994L11 5.105Zm-9 2h9v5.895l-8.11-.901A1 1 0 0 1 2 17Zm11 0h9v6a1 1 0 0 1-1.11.994L13 19.117Z"/></svg><span>Download for Windows</span></a>
+            <a class="button button--suggested" id="download-primary" href="https://github.com/riandredev/orion/releases/download/v1.0.8/Orion-1.0.8-windows-setup.exe"><svg class="os-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 11h-9V4.883l7.89-.877A1 1 0 0 1 22 5Zm-11 0H2V7a1 1 0 0 1 .89-.994L11 5.105Zm-9 2h9v5.895l-8.11-.901A1 1 0 0 1 2 17Zm11 0h9v6a1 1 0 0 1-1.11.994L13 19.117Z"/></svg><span>Download for Windows</span></a>
             <a class="button" href="#download">Other systems</a>
           </div>
         </div>
@@ -122,12 +122,12 @@
       <section class="band band--alt" id="download">
         <div class="frame">
           <h2>Download Orion</h2>
-          <p class="lede">Version 1.0.7 for 64-bit Windows and Linux. The app is free software under GPL-3.0-only.</p>
+          <p class="lede">Version <span data-release="version">1.0.8</span> for 64-bit Windows and Linux. The app is free software under GPL-3.0-only.</p>
           <div class="downloads">
             <article>
               <h3>Windows</h3>
               <p>Setup installer. Settings and files you have edited stay in the Orion data folder.</p>
-              <a class="button button--suggested" data-os="windows" href="https://github.com/riandredev/orion/releases/download/v1.0.7/Orion-1.0.7-windows-setup.exe"><svg class="os-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 11h-9V4.883l7.89-.877A1 1 0 0 1 22 5Zm-11 0H2V7a1 1 0 0 1 .89-.994L11 5.105Zm-9 2h9v5.895l-8.11-.901A1 1 0 0 1 2 17Zm11 0h9v6a1 1 0 0 1-1.11.994L13 19.117Z"/></svg>Download for Windows</a>
+              <a class="button button--suggested" data-os="windows" href="https://github.com/riandredev/orion/releases/download/v1.0.8/Orion-1.0.8-windows-setup.exe"><svg class="os-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 11h-9V4.883l7.89-.877A1 1 0 0 1 22 5Zm-11 0H2V7a1 1 0 0 1 .89-.994L11 5.105Zm-9 2h9v5.895l-8.11-.901A1 1 0 0 1 2 17Zm11 0h9v6a1 1 0 0 1-1.11.994L13 19.117Z"/></svg>Download for Windows</a>
             </article>
             <article>
               <h3>Linux</h3>
@@ -148,7 +148,7 @@
         <div>
           <a href="#download">Download</a>
           <a href="contact/">Contact</a>
-          <a href="https://github.com/riandredev/orion/releases/tag/v1.0.7">Release 1.0.7</a>
+          <a data-release="notes" href="https://github.com/riandredev/orion/releases/tag/v1.0.8">Release 1.0.8</a>
           <a href="https://github.com/riandredev/orion">Source code</a>
         </div>
         <div>
@@ -157,18 +157,6 @@
       </div>
     </footer>
 
-    <script>
-      const windows = document.querySelector('[data-os="windows"]')
-      const linux = document.querySelector('[data-os="linux"]')
-      const primary = document.getElementById('download-primary')
-      const linuxOs = /Linux/.test(navigator.userAgent) && !/Android/.test(navigator.userAgent)
-      if (linuxOs) {
-        primary.href = linux.href
-        primary.querySelector('span').textContent = 'Download for Linux'
-        primary.querySelector('svg').replaceWith(linux.querySelector('svg').cloneNode(true))
-        linux.classList.add('button--suggested')
-        windows.classList.remove('button--suggested')
-      }
-    </script>
+    <script src="js/release.js"></script>
   </body>
 </html>
