@@ -1,18 +1,23 @@
 function preferDownloadOs() {
   const windows = document.querySelector('[data-os="windows"]')
   const linux = document.querySelector('[data-os="linux"]')
+  const mac = document.querySelector('[data-os="macos"]')
   const primary = document.getElementById('download-primary')
-  if (!windows || !linux || !primary) return
+  if (!windows || !linux || !mac || !primary) return
   const linuxOs = /Linux/.test(navigator.userAgent) && !/Android/.test(navigator.userAgent)
-  if (!linuxOs) return
-  primary.href = linux.href
+  const macOs = /Mac/.test(navigator.platform || '') || /Mac OS X/.test(navigator.userAgent)
+  const match = linuxOs ? linux : macOs ? mac : null
+  if (!match) return
+  primary.href = match.href
   const label = primary.querySelector('span')
-  if (label) label.textContent = 'Download for Linux'
-  const icon = linux.querySelector('svg')
+  if (label) label.textContent = match === linux ? 'Download for Linux' : 'Download for macOS'
+  const icon = match.querySelector('svg')
   const current = primary.querySelector('svg')
   if (icon && current) current.replaceWith(icon.cloneNode(true))
-  linux.classList.add('button--suggested')
   windows.classList.remove('button--suggested')
+  linux.classList.remove('button--suggested')
+  mac.classList.remove('button--suggested')
+  match.classList.add('button--suggested')
 }
 
 function releaseVersion(tag) {
@@ -50,8 +55,10 @@ function applyRelease(releases) {
   })
   const windowsRelease = stable.find((release) => releaseAsset(release, '-windows-setup.exe'))
   const linuxRelease = stable.find((release) => releaseAsset(release, '-linux.AppImage'))
+  const macRelease = stable.find((release) => releaseAsset(release, '-mac.dmg'))
   const windows = windowsRelease && releaseAsset(windowsRelease, '-windows-setup.exe')
   const linux = linuxRelease && releaseAsset(linuxRelease, '-linux.AppImage')
+  const mac = macRelease && releaseAsset(macRelease, '-mac.dmg')
   if (windows) {
     document.querySelectorAll('[data-os="windows"]').forEach((node) => {
       node.href = windows.browser_download_url
@@ -62,6 +69,11 @@ function applyRelease(releases) {
   if (linux) {
     document.querySelectorAll('[data-os="linux"]').forEach((node) => {
       node.href = linux.browser_download_url
+    })
+  }
+  if (mac) {
+    document.querySelectorAll('[data-os="macos"]').forEach((node) => {
+      node.href = mac.browser_download_url
     })
   }
   preferDownloadOs()
