@@ -3,7 +3,7 @@
     {
       "id": "panorama",
       "name": "SDA Panorama Church",
-      "version": "1",
+      "version": "4",
       "summary": "Service order folders, Adventist hymnals, Afrikaans and English Bibles, and the matching backgrounds.",
       "icon": "images/libraries/panorama.png",
       "visuals": [
@@ -26,10 +26,14 @@
             {
               "name": "Gebed",
               "images": [
-                {
-                  "src": "images/libraries/order/Gebed/image1.jpg",
-                  "alt": "Gebed slide"
-                }
+                { "src": "images/libraries/order/Gebed/image1.jpg", "alt": "Gebed slide" },
+                { "src": "images/libraries/order/Gebed/image2.jpg", "alt": "Gebed slide" },
+                { "src": "images/libraries/order/Gebed/image3.jpg", "alt": "Gebed slide" },
+                { "src": "images/libraries/order/Gebed/image4.jpg", "alt": "Gebed slide" },
+                { "src": "images/libraries/order/Gebed/image5.jpg", "alt": "Gebed slide" },
+                { "src": "images/libraries/order/Gebed/image6.jpg", "alt": "Gebed slide" },
+                { "src": "images/libraries/order/Gebed/image7.jpg", "alt": "Gebed slide" },
+                { "src": "images/libraries/order/Gebed/image8.jpg", "alt": "Gebed slide" }
               ]
             },
             {
@@ -76,7 +80,11 @@
                 {
                   "src": "images/libraries/order/Lesstudie/image6.jpg",
                   "alt": "Lesstudie slide"
-                }
+                },
+                { "src": "images/libraries/order/Lesstudie/image7.jpg", "alt": "Lesstudie slide" },
+                { "src": "images/libraries/order/Lesstudie/image8.jpg", "alt": "Lesstudie slide" },
+                { "src": "images/libraries/order/Lesstudie/image9.jpg", "alt": "Lesstudie slide" },
+                { "src": "images/libraries/order/Lesstudie/image10.jpg", "alt": "Lesstudie slide" }
               ]
             },
             {
@@ -95,10 +103,10 @@
             {
               "name": "Spesiale Item",
               "images": [
-                {
-                  "src": "images/libraries/order/Spesiale Item/image1.jpg",
-                  "alt": "Spesiale Item slide"
-                }
+                { "src": "images/libraries/order/Spesiale Item/image1.jpg", "alt": "Spesiale Item slide" },
+                { "src": "images/libraries/order/Spesiale Item/image2.jpg", "alt": "Spesiale Item slide" },
+                { "src": "images/libraries/order/Spesiale Item/image3.jpg", "alt": "Spesiale Item slide" },
+                { "src": "images/libraries/order/Spesiale Item/image4.jpg", "alt": "Spesiale Item slide" }
               ]
             },
             {
@@ -139,7 +147,10 @@
                 {
                   "src": "images/libraries/order/Welkom/image9.jpg",
                   "alt": "Welkom slide"
-                }
+                },
+                { "src": "images/libraries/order/Welkom/image10.jpg", "alt": "Welkom slide" },
+                { "src": "images/libraries/order/Welkom/image11.jpg", "alt": "Welkom slide" },
+                { "src": "images/libraries/order/Welkom/image12.jpg", "alt": "Welkom slide" }
               ]
             }
           ]
