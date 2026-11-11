@@ -115,7 +115,7 @@
       }
 
       const id = new URLSearchParams(location.search).get('id')
-      fetch('../data/libraries.json')
+      fetch('../data/libraries.json?v=4')
         .then((response) => response.json())
         .then((data) => {
           const library = (data.libraries || []).find((entry) => entry.id === id)
