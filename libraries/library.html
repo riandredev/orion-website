@@ -71,8 +71,53 @@
         })[char])
       }
 
+      const libraryBase = 'https://raw.githubusercontent.com/riandredev/orion/main/bundles/'
+
       function asset(path) {
+        if (/^https?:\/\//.test(path)) return path
         return `../${encodeURI(path)}`
+      }
+
+      function catalogAsset(id, src, version) {
+        const path = String(src).split('/').map((part) => encodeURIComponent(part)).join('/')
+        return `${libraryBase}${encodeURIComponent(id)}/${path}?v=${encodeURIComponent(version || '')}`
+      }
+
+      function fromCatalog(entry) {
+        const visuals = []
+        const details = []
+        for (const group of entry.preview || []) {
+          const images = group.images || []
+          if (!images.length) {
+            if ((group.items || []).length) details.push({ label: group.label, items: group.items })
+            continue
+          }
+          const folders = []
+          const loose = []
+          for (const image of images) {
+            const src = catalogAsset(entry.id, image.src, entry.version)
+            const item = { src, alt: image.alt || '' }
+            if (!image.folder) {
+              loose.push(item)
+              continue
+            }
+            let folder = folders.find((entry) => entry.name === image.folder)
+            if (!folder) {
+              folder = { name: image.folder, images: [] }
+              folders.push(folder)
+            }
+            folder.images.push(item)
+          }
+          visuals.push({ label: group.label, folders, images: loose })
+        }
+        return {
+          name: entry.name,
+          version: entry.version,
+          summary: entry.summary,
+          icon: `${libraryBase}${entry.id}/icon.png`,
+          visuals,
+          details
+        }
       }
 
       function thumbs(images) {
@@ -102,7 +147,7 @@
         document.getElementById('library').innerHTML = `
           <a class="back" href="./">Libraries</a>
           <div class="library-title">
-            ${library.icon ? `<img src="../${escapeText(library.icon)}" alt="">` : ''}
+            ${library.icon ? `<img src="${escapeText(asset(library.icon))}" alt="">` : ''}
             <div>
               <h1>${escapeText(library.name)}</h1>
               <p>Version ${escapeText(library.version || '')}</p>
@@ -115,10 +160,11 @@
       }
 
       const id = new URLSearchParams(location.search).get('id')
-      fetch('../data/libraries.json?v=4')
+      fetch(`${libraryBase}catalog.json`)
         .then((response) => response.json())
         .then((data) => {
-          const library = (data.libraries || []).find((entry) => entry.id === id)
+          const entry = (data.bundles || []).find((item) => item.id === id)
+          const library = entry ? fromCatalog(entry) : null
           if (!library) {
             document.getElementById('library').innerHTML = '<p>This library is not in the public list. <a href="./">Back to libraries</a></p>'
             return

@@ -44,7 +44,7 @@
         <p class="summary">Public content packs. Install them from Settings in Orion. <a href="../contact/">Submit a library</a>.</p>
         <div class="catalog" id="library-index">
           <a href="library.html?id=panorama">
-            <img src="../images/libraries/panorama.png" alt="">
+            <img src="https://raw.githubusercontent.com/riandredev/orion/main/bundles/panorama/icon.png" alt="">
             <span>SDA Panorama Church</span>
           </a>
         </div>
@@ -80,13 +80,15 @@
         })[char])
       }
 
-      fetch('../data/libraries.json')
+      const libraryBase = 'https://raw.githubusercontent.com/riandredev/orion/main/bundles/'
+
+      fetch(`${libraryBase}catalog.json`)
         .then((response) => response.json())
         .then((data) => {
-          const libraries = Array.isArray(data.libraries) ? data.libraries : []
+          const libraries = Array.isArray(data.bundles) ? data.bundles : []
           document.getElementById('library-index').innerHTML = libraries.map((library) =>
             `<a href="library.html?id=${encodeURIComponent(library.id)}">
-              <img src="../${escapeText(library.icon)}" alt="">
+              <img src="${escapeText(`${libraryBase}${encodeURIComponent(library.id)}/icon.png`)}" alt="">
               <span>${escapeText(library.name)}</span>
             </a>`
           ).join('')
